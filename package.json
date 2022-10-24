@@ -1,0 +1,8 @@
+{
+  "name": "clean-typescript-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KPMGE/clean-typescript-api.git",
+  "author": "KPMGE <jesuskevin254@gmail.com>",
+  "license": "MIT"
+}
