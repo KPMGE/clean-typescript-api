@@ -6,16 +6,18 @@ type SutTypes = {
   encrypterStub: Encrypter
 }
 
-const makeSut = (): SutTypes => {
+const makeEncrypterStub = (): Encrypter => {
   class EncrypterStub implements Encrypter {
     async encrypt(text: string): Promise<string> {
       return new Promise(resolve => resolve('hashed_password'))
     }
   }
+  return new EncrypterStub()
+}
 
-  const encrypterStub = new EncrypterStub()
+const makeSut = (): SutTypes => {
+  const encrypterStub = makeEncrypterStub()
   const sut = new DbAddAccount(encrypterStub)
-
   return { sut, encrypterStub }
 }
 
