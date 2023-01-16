@@ -1,10 +1,13 @@
-import { MongoClient } from "mongodb"
 import { MongoHelper } from "../helpers/mongo-helper"
 import { MongoAccountRepository } from "./account"
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 describe('MongoAccountRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL)
+    console.log('connection string: ', process.env.MONGO_TEST_URL)
+    await MongoHelper.connect(process.env.MONGO_TEST_URL)
   })
 
   afterAll(async () => {
